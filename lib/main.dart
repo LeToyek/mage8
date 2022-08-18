@@ -28,8 +28,19 @@ class MyApp extends StatelessWidget {
               style: ElevatedButton.styleFrom(
             primary: pBlue,
             elevation: 0,
-          ))),
-      home: HomePage(),
+          )),
+          textTheme: const TextTheme(
+              headlineSmall: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+              headlineMedium: TextStyle(
+                  fontSize: 28,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+              labelSmall:
+                  TextStyle(fontSize: 14, fontWeight: FontWeight.bold))),
+      home: const HomePage(),
     );
   }
 }

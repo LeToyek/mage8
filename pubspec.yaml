@@ -70,6 +70,7 @@ flutter:
     - assets/images/purchase.svg
     - assets/images/search.svg
     - assets/images/dummy_bakso.jpg
+    - assets/icons/interface.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -10,9 +10,14 @@ final valueProvider = Provider<int>((ref) {
 
 final exampleProvider = Provider<Vendor>((ref) {
   return Vendor(
-      title: "Soto",
+      title: "Soto Lmaogan",
       description: "Murah meriah muntah",
       imageUrl: "imageUrl",
       status: Status.ramai,
-      distance: 3.1);
+      distance: 3.1,
+      city: "Malang",
+      county: "Singosari");
 });
+
+const String messageDialog =
+    "Panggilan anda akan terdaftar pada antrian. Tekan lanjut untuk melanjutkan, Tekan batal untuk membatalkan";

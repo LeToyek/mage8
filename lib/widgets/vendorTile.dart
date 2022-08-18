@@ -37,9 +37,10 @@ class VendorTile extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => DetailPage(),
           )),
-      child: SizedBox(
+      child: Container(
         width: double.infinity,
         height: 90,
+        margin: const EdgeInsets.only(bottom: 24),
         child: Row(
           children: [
             ClipRRect(
@@ -59,29 +60,33 @@ class VendorTile extends StatelessWidget {
                 Text(vendor.title,
                     style: GoogleFonts.nunito(
                         fontSize: 14, fontWeight: FontWeight.bold)),
-                Divider(
+                const Divider(
                   color: onBackground,
                   thickness: 1,
                 ),
                 Text(
                   vendor.description,
-                  style: TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 12),
                 ),
-                Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      vendor.distance.toString() + " km",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      checkStatus(),
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: checkStatusColor()),
-                    )
-                  ],
+                const Spacer(),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        vendor.distance.toString() + " km",
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        checkStatus(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: checkStatusColor()),
+                      )
+                    ],
+                  ),
                 )
               ],
             )

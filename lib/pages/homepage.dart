@@ -16,13 +16,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColor,
-          leading: Padding(
-            padding: const EdgeInsets.all(8),
-            child: new Material(
-              shape: new CircleBorder(),
-            ),
-          )),
+        backgroundColor: Theme.of(context).primaryColor,
+        leading: Container(
+          margin: EdgeInsets.only(left: 24),
+          child: const Material(
+            shape: const CircleBorder(),
+          ),
+        ),
+        title: Container(
+          width: double.infinity,
+          padding: EdgeInsets.only(left: 16),
+          height: 40,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(8)),
+          child: TextField(
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: "Cari nama PKL terdekat",
+                suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                      color: midGrey,
+                    ))),
+          ),
+        ),
+      ),
       body: SizedBox.expand(
           child: DraggableScrollableSheet(
               maxChildSize: 0.8,
@@ -30,6 +49,7 @@ class _HomePageState extends State<HomePage> {
               initialChildSize: 0.25,
               builder: (context, ScrollController scrollController) {
                 return Container(
+                  width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
                       color: Theme.of(context).backgroundColor,
@@ -59,10 +79,22 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Consumer(
                         builder: (context, ref, child) {
-                          final value = ref.watch(valueProvider);
-                          return Text(value.toString());
+                          final vendor = ref.watch(exampleProvider);
+                          return VendorTile(vendor: vendor);
                         },
-                      )
+                      ),
+                      Consumer(
+                        builder: (context, ref, child) {
+                          final vendor = ref.watch(exampleProvider);
+                          return VendorTile(vendor: vendor);
+                        },
+                      ),
+                      Consumer(
+                        builder: (context, ref, child) {
+                          final vendor = ref.watch(exampleProvider);
+                          return VendorTile(vendor: vendor);
+                        },
+                      ),
                     ],
                   ),
                 );

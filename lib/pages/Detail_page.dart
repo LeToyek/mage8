@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mage8/constants/color.dart';
+import 'package:mage8/provider/provider.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -11,23 +15,152 @@ class DetailPage extends StatelessWidget {
           elevation: 0,
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
             ),
           )),
-      body: Column(
-        children: [
-          Row(),
-          const Spacer(),
-          const Divider(),
-          Row(
+      body: Consumer(
+        builder: (context, ref, child) {
+          final vendorData = ref.watch(exampleProvider);
+          return Column(
             children: [
-              ElevatedButton.icon(
-                  onPressed: () {}, icon: Icon(Icons.abc), label: Text("data"))
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                width: double.infinity,
+                height: 72,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 72,
+                      height: 72,
+                      color: Colors.red,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 18),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            vendorData.title,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          Text("📍 ${vendorData.county} - ${vendorData.city}"),
+                          Text(vendorData.description)
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: midGrey),
+                    borderRadius: BorderRadius.circular(8),
+                    color: lightGrey),
+              ),
+              const Spacer(),
+              const Divider(),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/interface.svg',
+                        color: Colors.white,
+                        height: 24,
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 16),
+                          primary: midGrey),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (_) => Dialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Container(
+                                    width: 300,
+                                    height: 230,
+                                    padding:
+                                        EdgeInsets.fromLTRB(18, 28, 18, 18),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        color: Colors.white),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Tambah Antrian",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineMedium,
+                                        ),
+                                        const SizedBox(
+                                          height: 16,
+                                        ),
+                                        const Text(
+                                          messageDialog,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(color: midGrey),
+                                        ),
+                                        const SizedBox(
+                                          height: 16,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                          primary: error),
+                                                  child: Text("Batal")),
+                                            ),
+                                            SizedBox(
+                                              width: 16,
+                                            ),
+                                            Expanded(
+                                              child: ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text("Lanjut")),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ));
+                      },
+                      child: Text(
+                        "PANGGIL KE LOKASI",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(16),
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
-          )
-        ],
+          );
+        },
       ),
     );
   }
