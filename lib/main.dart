@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/homepage.dart';
@@ -6,7 +7,7 @@ import 'package:mage8/pages/onboard.dart';
 import 'package:mage8/pages/register.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           primaryColorLight: pLightBlue,
           primaryColorDark: pDarkBlue,
           backgroundColor: background,
-          textTheme: const TextTheme(headlineLarge: TextStyle(height: 46)),
+          // textTheme: GoogleFonts.nunitoTextTheme(Theme.of(context).textTheme),
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
             primary: pBlue,

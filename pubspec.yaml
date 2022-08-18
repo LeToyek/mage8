@@ -37,6 +37,7 @@ dependencies:
   flutter_svg: ^1.0.3
   google_fonts: ^3.0.1
   smooth_page_indicator: ^1.0.0+2
+  flutter_riverpod: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
     - assets/images/call.svg
     - assets/images/purchase.svg
     - assets/images/search.svg
+    - assets/images/dummy_bakso.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

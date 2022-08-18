@@ -9,3 +9,5 @@ const background = Colors.white;
 const error = Color(0xFFEE2737);
 const midGrey = Color(0xFF585858);
 const lightGrey = Color(0xFFD8D8D8);
+const success = Color(0xFF00AA13);
+const normal = Color(0xFFF0BB01);
