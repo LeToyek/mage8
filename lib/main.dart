@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/Test_page.dart';
 import 'package:mage8/pages/homepage.dart';
 import 'package:mage8/pages/onboard.dart';
 import 'package:mage8/pages/register.dart';

@@ -14,7 +14,8 @@ final exampleProvider = Provider<Vendor>((ref) {
       title: "Soto Lmaogan",
       description:
           "Murah meriah muntah Murah meriah muntah Murah meriah muntah Murah meriah muntah Murah meriah muntah",
-      imageUrl: "imageUrl",
+      imageUrl:
+          "https://assets.pikiran-rakyat.com/crop/0x508:821x1011/x/photo/2022/04/26/2747824482.jpg",
       status: Status.ramai,
       distance: 3.1,
       city: "Malang",

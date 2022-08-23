@@ -57,6 +57,12 @@ class _HomePageState extends State<HomePage> {
                   width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color.fromARGB(68, 0, 0, 0),
+                            blurRadius: 2,
+                            offset: Offset(0, -1))
+                      ],
                       color: Theme.of(context).backgroundColor,
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(8))),

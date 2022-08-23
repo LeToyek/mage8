@@ -42,13 +42,20 @@ class VendorTile extends StatelessWidget {
         height: 90,
         margin: const EdgeInsets.only(bottom: 24),
         child: Row(
+          mainAxisSize: MainAxisSize.max,
           children: [
             ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Container(
-                  width: 90,
-                  height: 90,
-                  color: Colors.red,
+                  width: 96,
+                  height: 96,
+                  child: FittedBox(
+                    fit: BoxFit.fitHeight,
+                    child: Image.network(
+                      vendor.imageUrl,
+                      height: 200,
+                    ),
+                  ),
                 )),
             SizedBox(
               width: 10,
@@ -70,7 +77,6 @@ class VendorTile extends StatelessWidget {
                 ),
                 const Spacer(),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
