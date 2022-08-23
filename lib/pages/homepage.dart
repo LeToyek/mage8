@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/Account_page.dart';
 import 'package:mage8/provider/provider.dart';
 import 'package:mage8/widgets/vendorTile.dart';
 
@@ -19,8 +20,12 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         leading: Container(
           margin: EdgeInsets.only(left: 24),
-          child: const Material(
-            shape: const CircleBorder(),
+          child: InkWell(
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AccountPage())),
+            child: const Material(
+              shape: const CircleBorder(),
+            ),
           ),
         ),
         title: Container(

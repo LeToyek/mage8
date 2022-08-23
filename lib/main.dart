@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
             primary: pBlue,
             elevation: 0,
           )),
+          scaffoldBackgroundColor: Colors.white,
           textTheme: const TextTheme(
               headlineSmall: TextStyle(
                   fontSize: 20,
