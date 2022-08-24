@@ -21,12 +21,14 @@ class _HomePageState extends State<HomePage> {
         leading: Container(
           margin: EdgeInsets.only(left: 24),
           child: InkWell(
-            onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const AccountPage())),
-            child: const Material(
-              shape: const CircleBorder(),
-            ),
-          ),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AccountPage())),
+              child: CircleAvatar(
+                radius: 24,
+                backgroundColor: Colors.red,
+                backgroundImage: NetworkImage(
+                    "https://www.dailysia.com/wp-content/uploads/2021/08/Windah-Basudara-660x400.jpg"),
+              )),
         ),
         title: Container(
           width: double.infinity,

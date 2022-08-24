@@ -71,7 +71,7 @@ class VendorTile extends StatelessWidget {
                   ),
                   Text(
                     vendor.description
-                        .replaceRange(20, vendor.description.length, '...'),
+                        .replaceRange(60, vendor.description.length, '...'),
                     style: const TextStyle(fontSize: 12),
                   ),
                   const Spacer(),
