@@ -31,6 +31,11 @@ final exampleProvider = Provider<Vendor>((ref) {
             price: 2000,
             isAvailable: false,
             imagePath: "imagePath"),
+        Product(
+            name: "Bakso",
+            price: 2000,
+            isAvailable: false,
+            imagePath: "imagePath"),
       ]);
 });
 

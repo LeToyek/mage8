@@ -53,60 +53,70 @@ class _HomePageState extends State<HomePage> {
               minChildSize: 0.12,
               initialChildSize: 0.25,
               builder: (context, ScrollController scrollController) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromARGB(68, 0, 0, 0),
-                            blurRadius: 2,
-                            offset: Offset(0, -1))
-                      ],
-                      color: Theme.of(context).backgroundColor,
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(8))),
-                  child: ListView(
-                    shrinkWrap: true,
-                    controller: scrollController,
-                    children: [
-                      Center(
-                        child: Container(
-                          height: 6,
-                          width: 64,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(32),
-                              color: lightGrey),
+                return Expanded(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromARGB(68, 0, 0, 0),
+                              blurRadius: 2,
+                              offset: Offset(0, -1))
+                        ],
+                        color: Theme.of(context).backgroundColor,
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(8))),
+                    child: ListView(
+                      controller: scrollController,
+                      children: [
+                        Center(
+                          child: Container(
+                            height: 6,
+                            width: 64,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(32),
+                                color: lightGrey),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Consumer(
-                        builder: (context, ref, child) {
-                          final vendor = ref.watch(exampleProvider);
-                          return VendorTile(vendor: vendor);
-                        },
-                      ),
-                      Consumer(
-                        builder: (context, ref, child) {
-                          final vendor = ref.watch(exampleProvider);
-                          return VendorTile(vendor: vendor);
-                        },
-                      ),
-                      Consumer(
-                        builder: (context, ref, child) {
-                          final vendor = ref.watch(exampleProvider);
-                          return VendorTile(vendor: vendor);
-                        },
-                      ),
-                      Consumer(
-                        builder: (context, ref, child) {
-                          final vendor = ref.watch(exampleProvider);
-                          return VendorTile(vendor: vendor);
-                        },
-                      ),
-                    ],
+                        // Expanded(
+                        //   child: ListView.builder(
+                        //       scrollDirection: Axis.horizontal,
+                        //       shrinkWrap: true,
+                        //       itemCount: 5,
+                        //       itemBuilder: (context, index) {
+                        //         return Text('${index}');
+                        //       }),
+                        // ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Consumer(
+                          builder: (context, ref, child) {
+                            final vendor = ref.watch(exampleProvider);
+                            return VendorTile(vendor: vendor);
+                          },
+                        ),
+                        Consumer(
+                          builder: (context, ref, child) {
+                            final vendor = ref.watch(exampleProvider);
+                            return VendorTile(vendor: vendor);
+                          },
+                        ),
+                        Consumer(
+                          builder: (context, ref, child) {
+                            final vendor = ref.watch(exampleProvider);
+                            return VendorTile(vendor: vendor);
+                          },
+                        ),
+                        Consumer(
+                          builder: (context, ref, child) {
+                            final vendor = ref.watch(exampleProvider);
+                            return VendorTile(vendor: vendor);
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 );
               })),

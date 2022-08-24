@@ -47,37 +47,35 @@ class VendorTile extends StatelessWidget {
             ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Container(
-                  width: 96,
-                  height: 96,
-                  child: FittedBox(
+                  width: 88,
+                  height: 88,
+                  child: Image.network(
+                    vendor.imageUrl,
                     fit: BoxFit.fitHeight,
-                    child: Image.network(
-                      vendor.imageUrl,
-                      height: 200,
-                    ),
                   ),
                 )),
             SizedBox(
               width: 10,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(vendor.title,
-                    style: GoogleFonts.nunito(
-                        fontSize: 14, fontWeight: FontWeight.bold)),
-                const Divider(
-                  color: onBackground,
-                  thickness: 1,
-                ),
-                Text(
-                  vendor.description,
-                  style: const TextStyle(fontSize: 12),
-                ),
-                const Spacer(),
-                SizedBox(
-                  child: Row(
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(vendor.title,
+                      style: GoogleFonts.nunito(
+                          fontSize: 14, fontWeight: FontWeight.bold)),
+                  const Divider(
+                    color: onBackground,
+                    thickness: 1,
+                  ),
+                  Text(
+                    vendor.description
+                        .replaceRange(20, vendor.description.length, '...'),
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                  const Spacer(),
+                  Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -93,8 +91,8 @@ class VendorTile extends StatelessWidget {
                       )
                     ],
                   ),
-                )
-              ],
+                ],
+              ),
             )
           ],
         ),

@@ -25,95 +25,111 @@ class DetailPage extends StatelessWidget {
       body: Consumer(
         builder: (context, ref, child) {
           final vendorData = ref.watch(exampleProvider);
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          return Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: 72,
-                        color: Colors.red,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 16),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              vendorData.title,
-                              style: Theme.of(context).textTheme.headlineSmall,
+              SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Container(
+                            width: double.infinity,
+                            height: 160,
+                            child: Image.network(
+                              vendorData.imageUrl,
+                              fit: BoxFit.fitWidth,
                             ),
-                            Text(
-                                "📍 ${vendorData.county} - ${vendorData.city}"),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            Text(vendorData.description)
-                          ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 24),
-                        padding: const EdgeInsets.all(14),
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: midGrey),
-                            borderRadius: BorderRadius.circular(8),
-                            color: lightGrey),
-                      ),
-                      ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: vendorData.products.length,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            final productList = vendorData.products;
-                            return ProductCard(
-                              product: productList[index],
-                            );
-                          })
-                    ],
+                        Container(
+                          margin: const EdgeInsets.only(top: 16),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                vendorData.title,
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall,
+                              ),
+                              Text(
+                                  "📍 ${vendorData.county} - ${vendorData.city}"),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Text(vendorData.description)
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 24),
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 1, color: midGrey),
+                              borderRadius: BorderRadius.circular(8),
+                              color: lightGrey),
+                        ),
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: vendorData.products.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              final productList = vendorData.products;
+                              return ProductCard(
+                                product: productList[index],
+                              );
+                            }),
+                        const SizedBox(
+                          height: 72,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-              const Spacer(),
-              const Divider(),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: SvgPicture.asset(
-                        'assets/icons/interface.svg',
-                        color: Colors.white,
-                        height: 24,
+              Positioned(
+                bottom: 0,
+                child: Container(
+                  color: Colors.white,
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Divider(),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: SvgPicture.asset(
+                          'assets/icons/interface.svg',
+                          color: Colors.white,
+                          height: 24,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 16),
+                            primary: midGrey),
                       ),
-                      style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 16),
-                          primary: midGrey),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (_) => CustomAlertDialog());
-                      },
-                      child: Text(
-                        "PANGGIL KE LOKASI",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.all(16),
-                      ),
-                    )
-                  ],
+                      Spacer(),
+                      ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) => CustomAlertDialog());
+                        },
+                        child: Text(
+                          "PANGGIL KE LOKASI",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.all(16),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
