@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/Account_page.dart';
 import 'package:mage8/provider/provider.dart';
+import 'package:mage8/widgets/Category_tile.dart';
 import 'package:mage8/widgets/vendorTile.dart';
 
 class HomePage extends StatefulWidget {
@@ -74,6 +75,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Center(
                           child: Container(
+                            margin: EdgeInsets.only(bottom: 24),
                             height: 6,
                             width: 64,
                             decoration: BoxDecoration(
@@ -81,42 +83,36 @@ class _HomePageState extends State<HomePage> {
                                 color: lightGrey),
                           ),
                         ),
-                        // Expanded(
-                        //   child: ListView.builder(
-                        //       scrollDirection: Axis.horizontal,
-                        //       shrinkWrap: true,
-                        //       itemCount: 5,
-                        //       itemBuilder: (context, index) {
-                        //         return Text('${index}');
-                        //       }),
-                        // ),
+                        Consumer(builder: (context, ref, child) {
+                          return SizedBox(
+                              height: 32,
+                              child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  shrinkWrap: true,
+                                  itemCount: ref.watch(categoryProvider).length,
+                                  itemBuilder: (context, index) {
+                                    final listCategory =
+                                        ref.watch(categoryProvider);
+                                    return CategoryTile(
+                                        category: listCategory[index]);
+                                  }));
+                        }),
                         SizedBox(
                           height: 24,
                         ),
-                        Consumer(
-                          builder: (context, ref, child) {
-                            final vendor = ref.watch(exampleProvider);
-                            return VendorTile(vendor: vendor);
-                          },
-                        ),
-                        Consumer(
-                          builder: (context, ref, child) {
-                            final vendor = ref.watch(exampleProvider);
-                            return VendorTile(vendor: vendor);
-                          },
-                        ),
-                        Consumer(
-                          builder: (context, ref, child) {
-                            final vendor = ref.watch(exampleProvider);
-                            return VendorTile(vendor: vendor);
-                          },
-                        ),
-                        Consumer(
-                          builder: (context, ref, child) {
-                            final vendor = ref.watch(exampleProvider);
-                            return VendorTile(vendor: vendor);
-                          },
-                        ),
+                        Consumer(builder: (context, ref, child) {
+                          final vendorList = ref.watch(vendorListProvider);
+                          return SizedBox(
+                            child: ListView.builder(
+                              itemCount: vendorList.length,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return VendorTile(vendor: vendorList[index]);
+                              },
+                            ),
+                          );
+                        })
                       ],
                     ),
                   ),

@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold),
               labelSmall:
                   TextStyle(fontSize: 14, fontWeight: FontWeight.bold))),
-      home: OnBoardPage(),
+      home: HomePage(),
     );
   }
 }

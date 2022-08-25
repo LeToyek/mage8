@@ -70,9 +70,12 @@ flutter:
     - assets/images/call.svg
     - assets/images/purchase.svg
     - assets/images/search.svg
+    - assets/images/login.svg
+    - assets/icons/google-icon.png
     - assets/images/dummy_bakso.jpg
     - assets/icons/interface.svg
     - assets/icons/store.svg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

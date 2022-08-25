@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/Quque_page.dart';
 import 'package:mage8/provider/provider.dart';
 
 class CustomAlertDialog extends StatelessWidget {
@@ -49,7 +50,11 @@ class CustomAlertDialog extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QueuePage(),
+                            ));
                       },
                       child: Text("Lanjut")),
                 )

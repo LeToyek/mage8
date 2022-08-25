@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mage8/Model/Board.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/Login.dart';
 import 'package:mage8/pages/register.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -116,8 +117,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                             : Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const RegisterPage()));
+                                    builder: (context) => const LoginPage()));
                       },
                       child: Text(isFinished ? "Finish" : "next"))
                 ],

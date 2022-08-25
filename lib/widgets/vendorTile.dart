@@ -35,7 +35,9 @@ class VendorTile extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailPage(),
+            builder: (context) => DetailPage(
+              vendorData: vendor,
+            ),
           )),
       child: Container(
         width: double.infinity,
