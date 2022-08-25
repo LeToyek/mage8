@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mage8/Model/Board.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/register.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widgets/Onboard_tile.dart';
@@ -52,21 +53,23 @@ class _OnBoardPageState extends State<OnBoardPage> {
           children: [
             Expanded(
               child: PageView.builder(
+                onPageChanged: (value) {
+                  setState(() {
+                    if (value >= 1) {
+                      isShowPrev = true;
+                      if (value == 2) {
+                        isFinished = true;
+                      } else {
+                        isFinished = false;
+                      }
+                    } else {
+                      isShowPrev = false;
+                    }
+                  });
+                },
                 controller: _pageController,
                 itemCount: _listObject.length,
                 itemBuilder: (context, index) {
-                  if (index >= 1) {
-                    isShowPrev = true;
-                    if (index == 2) {
-                      isFinished = true;
-                    } else {
-                      isFinished = false;
-                    }
-                  } else {
-                    isShowPrev = false;
-                  }
-                  print("isFinished -->> ${isFinished}");
-                  print(isShowPrev);
                   return OnBoardObject(
                     onBoard: _listObject[index],
                   );
@@ -92,13 +95,29 @@ class _OnBoardPageState extends State<OnBoardPage> {
               width: double.infinity,
               child: Row(
                 children: [
+                  isShowPrev
+                      ? ElevatedButton(
+                          onPressed: () {
+                            _pageController.previousPage(
+                                duration: const Duration(microseconds: 300),
+                                curve: Curves.ease);
+                          },
+                          child: const Text("Prev"),
+                          style: ElevatedButton.styleFrom(primary: midGrey),
+                        )
+                      : Container(),
                   const Spacer(),
                   ElevatedButton(
                       onPressed: () {
-                        _pageController.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.ease);
-                        // _pageController.page = 1;
+                        !isFinished
+                            ? _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.ease)
+                            : Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RegisterPage()));
                       },
                       child: Text(isFinished ? "Finish" : "next"))
                 ],

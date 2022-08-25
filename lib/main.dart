@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
           // textTheme: GoogleFonts.nunitoTextTheme(Theme.of(context).textTheme),
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             primary: pBlue,
             elevation: 0,
           )),
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold),
               labelSmall:
                   TextStyle(fontSize: 14, fontWeight: FontWeight.bold))),
-      home: RegisterPage(),
+      home: OnBoardPage(),
     );
   }
 }
