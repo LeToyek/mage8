@@ -34,6 +34,10 @@ class MyApp extends StatelessWidget {
           )),
           scaffoldBackgroundColor: Colors.white,
           textTheme: const TextTheme(
+              headlineLarge: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
               headlineSmall: TextStyle(
                   fontSize: 20,
                   color: Colors.black,

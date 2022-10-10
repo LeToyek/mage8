@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mage8/pages/homepage.dart';
 import 'package:mage8/widgets/Basic_textfield.dart';
+import 'package:mage8/widgets/Headlined_button.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -31,21 +32,11 @@ class RegisterPage extends StatelessWidget {
               ],
             ),
             Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 16)),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => HomePage())));
-                },
-                child: Text(
-                  "SIMPAN",
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
+            HeadlinedButton(
+                context,
+                "SIMPAN",
+                () => Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => HomePage())))
           ],
         ),
       ),

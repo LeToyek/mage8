@@ -4,6 +4,7 @@ import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/Account_page.dart';
 import 'package:mage8/provider/provider.dart';
 import 'package:mage8/widgets/Category_tile.dart';
+import 'package:mage8/widgets/Search_app_bar.dart';
 import 'package:mage8/widgets/vendorTile.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,39 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        leading: Container(
-          margin: EdgeInsets.only(left: 24),
-          child: InkWell(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const AccountPage())),
-              child: CircleAvatar(
-                radius: 24,
-                backgroundColor: Colors.red,
-                backgroundImage: NetworkImage(
-                    "https://www.dailysia.com/wp-content/uploads/2021/08/Windah-Basudara-660x400.jpg"),
-              )),
-        ),
-        title: Container(
-          width: double.infinity,
-          padding: EdgeInsets.only(left: 16),
-          height: 40,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(8)),
-          child: TextField(
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: "Cari nama PKL terdekat",
-                suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.search,
-                      color: midGrey,
-                    ))),
-          ),
-        ),
-      ),
+      appBar: SearchAppBar(context, "Cari PKL terdekat", () {}),
       body: SizedBox.expand(
           child: DraggableScrollableSheet(
               maxChildSize: 0.8,

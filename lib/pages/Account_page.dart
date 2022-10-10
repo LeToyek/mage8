@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/homepage.dart';
 import 'package:mage8/pages/vendor/Input_data_page.dart';
 import 'package:mage8/provider/provider.dart';
 
@@ -46,33 +47,21 @@ class AccountPage extends StatelessWidget {
                 const SizedBox(
                   height: 32,
                 ),
+                NewIconButton(
+                    context,
+                    "Gabung PKL",
+                    () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => InputVendorDataPage()))),
                 SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => InputVendorDataPage())),
-                      style: ElevatedButton.styleFrom(
-                          side: BorderSide(
-                              color: Theme.of(context).primaryColor, width: 1),
-                          primary: Colors.white),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset('assets/icons/store.svg'),
-                            Spacer(),
-                            Text(
-                              "GABUNG PKL",
-                              style: TextStyle(color: pBlue),
-                            ),
-                            Spacer(),
-                            SizedBox()
-                          ],
-                        ),
-                      )),
+                  height: 16,
                 ),
+                NewIconButton(
+                    context,
+                    "Halaman Utama",
+                    () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => HomePage()))),
                 Spacer(),
                 SizedBox(
                   width: double.infinity,
@@ -92,5 +81,31 @@ class AccountPage extends StatelessWidget {
         );
       }),
     );
+  }
+
+  Widget NewIconButton(BuildContext context, String title, Function todo) {
+    return SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+            onPressed: () => todo(),
+            style: ElevatedButton.styleFrom(
+                side:
+                    BorderSide(color: Theme.of(context).primaryColor, width: 1),
+                primary: Colors.white),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Row(
+                children: [
+                  SvgPicture.asset('assets/icons/store.svg'),
+                  Spacer(),
+                  Text(
+                    title,
+                    style: TextStyle(color: pBlue),
+                  ),
+                  Spacer(),
+                  SizedBox()
+                ],
+              ),
+            )));
   }
 }
