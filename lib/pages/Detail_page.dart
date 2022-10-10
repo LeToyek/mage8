@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mage8/Model/Vendor.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/Direction_page.dart';
 import 'package:mage8/provider/provider.dart';
 import 'package:mage8/widgets/Custom_Alert_dialog.dart';
 import 'package:mage8/widgets/Product_card.dart';
@@ -99,37 +100,54 @@ class DetailPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: SvgPicture.asset(
-                            'assets/icons/interface.svg',
-                            color: Colors.white,
-                            height: 24,
+                    SizedBox(
+                      height: 48,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 76,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => DirectionPage(
+                                              venName: vendorData.title,
+                                            )));
+                              },
+                              child: SvgPicture.asset(
+                                'assets/icons/interface.svg',
+                                color: Colors.white,
+                                height: 24,
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 24, vertical: 16),
+                                  primary: midGrey),
+                            ),
                           ),
-                          style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 24, vertical: 16),
-                              primary: midGrey),
-                        ),
-                        Spacer(),
-                        ElevatedButton(
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (_) => CustomAlertDialog());
-                          },
-                          child: Text(
-                            "PANGGIL KE LOKASI",
-                            style: TextStyle(fontSize: 18),
+                          SizedBox(
+                            width: 16,
                           ),
-                          style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(16),
-                          ),
-                        )
-                      ],
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (_) => CustomAlertDialog());
+                              },
+                              child: Text(
+                                "PANGGIL KE LOKASI",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.all(16),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

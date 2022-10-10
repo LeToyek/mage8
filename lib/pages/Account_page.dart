@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/vendor/Input_data_page.dart';
 import 'package:mage8/provider/provider.dart';
 
 class AccountPage extends StatelessWidget {
@@ -48,7 +49,10 @@ class AccountPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => InputVendorDataPage())),
                       style: ElevatedButton.styleFrom(
                           side: BorderSide(
                               color: Theme.of(context).primaryColor, width: 1),
