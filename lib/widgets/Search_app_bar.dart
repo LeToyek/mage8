@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/Account_page.dart';
+import 'package:mage8/pages/queue/Queue_list_page.dart';
 
 PreferredSizeWidget SearchAppBar(
     BuildContext context, String hint, Function funcTarget) {
   return AppBar(
     backgroundColor: Theme.of(context).primaryColor,
+    actions: [
+      IconButton(
+          icon: Icon(Icons.ring_volume),
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (_) => QueueListPage()))),
+      SizedBox(
+        width: 8,
+      )
+    ],
     leading: Container(
       margin: EdgeInsets.only(left: 24),
       child: InkWell(

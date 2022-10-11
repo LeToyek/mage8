@@ -5,6 +5,7 @@ import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/homepage.dart';
 import 'package:mage8/pages/vendor/Input_data_page.dart';
 import 'package:mage8/provider/provider.dart';
+import 'package:mage8/widgets/White_appbar.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -12,18 +13,7 @@ class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: background,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: onBackground,
-            )),
-        elevation: 0,
-      ),
+      appBar: WhiteAppBar("", context),
       body: Consumer(builder: (context, ref, child) {
         final accountData = ref.watch(accountProvider);
         return Padding(

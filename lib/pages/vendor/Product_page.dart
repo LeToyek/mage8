@@ -41,6 +41,7 @@ class _ProductPageState extends State<ProductPage> {
                 : ListView.builder(
                     shrinkWrap: true,
                     itemCount: widget.productList.length,
+                    physics: BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return SwitchableProductCard(
                           product: widget.productList[index]);

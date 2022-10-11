@@ -38,7 +38,7 @@ class EditProduct extends StatelessWidget {
                         height: 160,
                         width: double.infinity,
                         child: Image.network(
-                          product.imagePath,
+                          product.imagePath!,
                           fit: BoxFit.fill,
                         )),
                   ),

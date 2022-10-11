@@ -27,7 +27,7 @@ class ProductCard extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8), color: Colors.red),
               child: Image.network(
-                product.imagePath,
+                product.imagePath!,
                 fit: BoxFit.fitHeight,
               ),
             ),
@@ -45,7 +45,7 @@ class ProductCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      product.name,
+                      product.name!,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
@@ -54,11 +54,11 @@ class ProductCard extends StatelessWidget {
                           horizontal: 8, vertical: 2),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(32),
-                          color: product.isAvailable
+                          color: product.isAvailable!
                               ? Theme.of(context).primaryColor
                               : midGrey),
                       child: Text(
-                        product.isAvailable ? "Tersedia" : "Tidak Tersedia",
+                        product.isAvailable! ? "Tersedia" : "Tidak Tersedia",
                         style: TextStyle(color: Colors.white),
                       ),
                     )

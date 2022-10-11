@@ -18,6 +18,8 @@ class _TestPageState extends State<TestPage> {
         ),
         body: SwitchableProductCard(
           product: Product(
+              id: 2,
+              vendorId: 3,
               name: "Bakso",
               price: 20000,
               isAvailable: true,

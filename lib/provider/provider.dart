@@ -20,6 +20,27 @@ final accountProvider = Provider<Account>(
             "https://www.dailysia.com/wp-content/uploads/2021/08/Windah-Basudara-660x400.jpg");
   },
 );
+final listAccProvider = Provider<List<Account>>(
+  (ref) {
+    return [
+      Account(
+          name: "Windah",
+          phone: "0129301239",
+          imageURL:
+              "https://www.dailysia.com/wp-content/uploads/2021/08/Windah-Basudara-660x400.jpg"),
+      Account(
+          name: "Basudara",
+          phone: "0129301239",
+          imageURL:
+              "https://www.dailysia.com/wp-content/uploads/2021/08/Windah-Basudara-660x400.jpg"),
+      Account(
+          name: "Bernard",
+          phone: "0129301239",
+          imageURL:
+              "https://www.dailysia.com/wp-content/uploads/2021/08/Windah-Basudara-660x400.jpg"),
+    ];
+  },
+);
 
 final categoryProvider = Provider<List<Category>>((ref) {
   return [
@@ -43,18 +64,24 @@ final vendorListProvider = Provider<List<Vendor>>((ref) {
         county: "Singosari",
         products: [
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 20000,
               isAvailable: true,
               imagePath:
                   "https://cdn0-production-images-kly.akamaized.net/265KcigvIMcvoAN4XIRKjOT-aR0=/1200x675/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/2763419/original/071857300_1553761217-shutterstock_1148354906.jpg"),
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 200000,
               isAvailable: false,
               imagePath:
                   "https://mmc.tirto.id/image/otf/1024x535/2019/07/13/bakso-istockphoto-copy.jpg"),
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 3000,
               isAvailable: false,
@@ -73,18 +100,24 @@ final vendorListProvider = Provider<List<Vendor>>((ref) {
         county: "Singosari",
         products: [
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 20000,
               isAvailable: true,
               imagePath:
                   "https://cdn0-production-images-kly.akamaized.net/265KcigvIMcvoAN4XIRKjOT-aR0=/1200x675/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/2763419/original/071857300_1553761217-shutterstock_1148354906.jpg"),
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 200000,
               isAvailable: false,
               imagePath:
                   "https://mmc.tirto.id/image/otf/1024x535/2019/07/13/bakso-istockphoto-copy.jpg"),
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 3000,
               isAvailable: false,
@@ -103,18 +136,24 @@ final vendorListProvider = Provider<List<Vendor>>((ref) {
         county: "Singosari",
         products: [
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 20000,
               isAvailable: true,
               imagePath:
                   "https://cdn0-production-images-kly.akamaized.net/265KcigvIMcvoAN4XIRKjOT-aR0=/1200x675/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/2763419/original/071857300_1553761217-shutterstock_1148354906.jpg"),
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 200000,
               isAvailable: false,
               imagePath:
                   "https://mmc.tirto.id/image/otf/1024x535/2019/07/13/bakso-istockphoto-copy.jpg"),
           Product(
+              id: 1,
+              vendorId: 2,
               name: "Bakso",
               price: 3000,
               isAvailable: false,

@@ -42,7 +42,7 @@ class _SwitchableProductCardState extends State<SwitchableProductCard> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8), color: Colors.red),
                 child: Image.network(
-                  widget.product.imagePath,
+                  widget.product.imagePath!,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -57,7 +57,7 @@ class _SwitchableProductCardState extends State<SwitchableProductCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.product.name,
+                    widget.product.name!,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   Spacer(),

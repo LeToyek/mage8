@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/Test_page.dart';
 import 'package:mage8/pages/homepage.dart';
-import 'package:mage8/pages/onboard.dart';
-import 'package:mage8/pages/register.dart';
+import 'package:mage8/pages/Onboard.dart';
+import 'package:mage8/pages/Register.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
