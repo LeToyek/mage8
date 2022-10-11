@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mage8/Model/Board.dart';
 import 'package:mage8/constants/color.dart';
+import 'package:mage8/pages/Login.dart';
+import 'package:mage8/pages/register.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../widgets/Onboard_tile.dart';
 
 class OnBoardPage extends StatefulWidget {
   @override
@@ -17,9 +21,10 @@ class _OnBoardPageState extends State<OnBoardPage> {
         title: "Cari PKL di sekitarmu",
         description: "Dengan fitur GPS, kamu dapat menemukan PKL di sekitarmu"),
     OnBoard(
-        img: "assets/images/purchase.svg",
-        title: "Cari PKL di sekitarmu",
-        description: "Dengan fitur GPS, kamu dapat menemukan PKL di sekitarmu")
+      img: "assets/images/purchase.svg",
+      title: "Cari PKL di sekitarmu",
+      description: "Dengan fitur GPS, kamu dapat menemukan PKL di sekitarmu",
+    )
   ];
   late PageController _pageController;
 
@@ -37,6 +42,8 @@ class _OnBoardPageState extends State<OnBoardPage> {
   }
 
   bool isUsed = false;
+  bool isShowPrev = false;
+  bool isFinished = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +54,20 @@ class _OnBoardPageState extends State<OnBoardPage> {
           children: [
             Expanded(
               child: PageView.builder(
+                onPageChanged: (value) {
+                  setState(() {
+                    if (value >= 1) {
+                      isShowPrev = true;
+                      if (value == 2) {
+                        isFinished = true;
+                      } else {
+                        isFinished = false;
+                      }
+                    } else {
+                      isShowPrev = false;
+                    }
+                  });
+                },
                 controller: _pageController,
                 itemCount: _listObject.length,
                 itemBuilder: (context, index) {
@@ -75,15 +96,30 @@ class _OnBoardPageState extends State<OnBoardPage> {
               width: double.infinity,
               child: Row(
                 children: [
+                  isShowPrev
+                      ? ElevatedButton(
+                          onPressed: () {
+                            _pageController.previousPage(
+                                duration: const Duration(microseconds: 300),
+                                curve: Curves.ease);
+                          },
+                          child: const Text("Prev"),
+                          style: ElevatedButton.styleFrom(primary: midGrey),
+                        )
+                      : Container(),
                   const Spacer(),
                   ElevatedButton(
                       onPressed: () {
-                        _pageController.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.ease);
-                        // _pageController.page = 1;
+                        !isFinished
+                            ? _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.ease)
+                            : Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()));
                       },
-                      child: const Text("next"))
+                      child: Text(isFinished ? "Finish" : "next"))
                 ],
               ),
             ),
@@ -92,42 +128,4 @@ class _OnBoardPageState extends State<OnBoardPage> {
       ),
     );
   }
-}
-
-class OnBoardObject extends StatelessWidget {
-  const OnBoardObject({required this.onBoard});
-
-  final OnBoard onBoard;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Spacer(),
-        SvgPicture.asset(
-          onBoard.img,
-          height: 214,
-        ),
-        const SizedBox(
-          height: 72,
-        ),
-        Text(onBoard.title, style: Theme.of(context).textTheme.headline6!),
-        Container(
-          width: 200,
-          margin: const EdgeInsets.only(top: 8),
-          child: Text(
-            onBoard.description,
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: midGrey),
-          ),
-        ),
-        Spacer()
-      ],
-    );
-  }
-}
-
-class OnBoard {
-  String img, title, description;
-  OnBoard({required this.img, required this.title, required this.description});
 }
