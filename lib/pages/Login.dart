@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/Register.dart';
+import 'package:mage8/provider/user_provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends ConsumerWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -36,10 +39,10 @@ class LoginPage extends StatelessWidget {
               const Spacer(),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegisterPage()));
+                    var user = ref.read(userProvider.notifier);
+                    user.loginUser();
+                    var token = FlutterSecureStorage().read(key: "token");
+                    print(token);
                   },
                   style: ElevatedButton.styleFrom(
                       side: BorderSide(

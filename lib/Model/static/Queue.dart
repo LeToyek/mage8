@@ -1,4 +1,4 @@
-import 'package:mage8/Model/Vendor.dart';
+import 'package:mage8/Model/static/Vendor.dart';
 
 class Queue {
   final int attempt;

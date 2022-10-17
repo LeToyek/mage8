@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mage8/Model/Board.dart';
+import 'package:mage8/Model/static/Board.dart';
 import 'package:mage8/constants/color.dart';
 
 class OnBoardObject extends StatelessWidget {

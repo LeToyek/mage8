@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mage8/Model/Category.dart';
+import 'package:mage8/Model/static/Category.dart';
 
 class CategoryTile extends StatelessWidget {
   final Category category;

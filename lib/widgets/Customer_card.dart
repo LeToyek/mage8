@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mage8/Model/Account.dart';
+import 'package:mage8/Model/static/Account.dart';
 import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/queue/Queue_direct.dart';
 

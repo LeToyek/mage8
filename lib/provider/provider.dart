@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mage8/Model/Account.dart';
-import 'package:mage8/Model/Category.dart';
+import 'package:mage8/Model/static/Account.dart';
+import 'package:mage8/Model/static/Category.dart';
 import 'package:mage8/Model/Product.dart';
-import 'package:mage8/Model/Vendor.dart';
+import 'package:mage8/Model/static/Vendor.dart';
 import 'package:mage8/widgets/vendorTile.dart';
 
 enum Status { ramai, sepi, normal }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mage8/Model/Board.dart';
+import 'package:mage8/Model/static/Board.dart';
 import 'package:mage8/constants/color.dart';
 import 'package:mage8/pages/Login.dart';
 import 'package:mage8/pages/Register.dart';

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mage8/Model/Vendor.dart';
+import 'package:mage8/Model/static/Vendor.dart';
 import 'package:mage8/Model/Vendors.dart';
 import 'package:mage8/provider/dio_provider.dart';
 
