@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "24895774475",
+    "project_id": "sikama-70f9c",
+    "storage_bucket": "sikama-70f9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24895774475:android:895a40ce256bbe667e8c0e",
+        "android_client_info": {
+          "package_name": "com.example.mage8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24895774475-musgknjdisv4163d2nseql9q32m2ls1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgsTGEJ2xSYUtSvYxUQGdhB55BXGAwb0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24895774475-musgknjdisv4163d2nseql9q32m2ls1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

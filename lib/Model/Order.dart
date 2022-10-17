@@ -1,7 +1,12 @@
+import 'package:mage8/Model/User.dart';
+import 'package:mage8/Model/Vendors.dart';
+
 class Orders {
   int? id;
   int? customerID;
+  User? user;
   int? vendorID;
+  Vendors? vendor;
   DateTime? scheduleTime;
   Enum? status;
   int? queueNumber;
